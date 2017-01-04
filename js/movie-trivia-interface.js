@@ -1,7 +1,11 @@
 var Movie = require('./../js/movie-trivia.js').movieModule;
 
-var displayTitle = function(title, movieTitle) {
-  $('.showMovie').text("The title of the movie " + title + "is " + movieTitle);
+var displayTitle = function(title, movieTitle, movieDirector, movieYear, movieActors) {
+  $('.showMovie').text(movieTitle + " by " + movieDirector + ": " + movieYear + " starring ");
+  var movieActorArray = movieActors.split(",");
+  movieActorArray.forEach(function(actor){
+    $('.showMovie').append(actor + ", ");
+  });
 };
 
 $(document).ready(function() {
